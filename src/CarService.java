@@ -15,3 +15,9 @@ public class CarService {
     public boolean deleteCar(Car car) {
         return carList.remove(car);
     }
+
+    public List<Car> getAllCars() {
+        return carList;
+    }
+
+}
