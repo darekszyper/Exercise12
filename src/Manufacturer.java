@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Manufacturer{
     private String companyName;
     private int yearOfFoundation;
@@ -10,13 +12,16 @@ public class Manufacturer{
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Manufacturer that = (Manufacturer) o;
+        return yearOfFoundation == that.yearOfFoundation && companyName.equals(that.companyName) && country.equals(that.country);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(companyName, yearOfFoundation, country);
     }
 
     public String getCompanyName() {
